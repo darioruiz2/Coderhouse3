@@ -1,0 +1,17 @@
+{% extends 'AppCoder/padre.html' %}
+{% load  static %}
+
+{% block contenido_que_cambia %}
+
+<h3 class="header-title"><strong class="text-primary">Modificar Blog </strong><span></span></h3>
+
+<form action="{% url "Editblog" blog.id %}" method= "POST"  enctype = "multipart/form-data"> {% csrf_token %}
+<table>
+    {{ form.as_table }}
+</table>
+<input type="submit" value="EDITAR BLOG">
+
+</form>
+
+{{ mensaje555 }}
+{% endblock  %}

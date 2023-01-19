@@ -1,0 +1,49 @@
+{% extends 'AppCoder/padre.html' %}
+{% load  static %}
+
+{% block contenido_que_cambia %}
+
+
+<div class = "post-preview">
+    <a href= "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjsprzj9NL8AhWNq5UCHYVUDEEQvOMEKAB6BAgZEAE&url=https%3A%2F%2Fwww.lanacion.com.ar%2Fvideos%2Fargentina-campeon-del-mundo-el-documental-que-muestra-el-camino-de-la-seleccion-para-ganar-la-nid09012023%2F&usg=AOvVaw10dxcktz7kbOsnT5elqVJn">
+        <h2 class= "Post-title">Argentina Campeon del Mundo</h2>
+        <h4 class="post-subtitle">Hace 1 mes de la gran hazaña argentina!</h4> 
+    </a>
+    <p class="post-meta">Posteado por
+        <a href="#">Dario Ruiz</a>
+        18 de diciembre,2022
+    </p>
+
+    <div class = "post-preview">
+        <a href= "https://www.dw.com/es/muere-ministro-del-interior-ucraniano-en-incidente-aéreo/a-64432172">
+            <h2 class= "Post-title">Muere ministro del Interior ucraniano en incidente aéreo</h2>
+            <h4 class="post-subtitle">Según las autoridades, un helicóptero se estrelló cerca de un jardín infantil y un edificio de apartamentos en la ciudad de Brovary
+            </h4> 
+        </a>
+        <p class="post-meta">Posteado por
+            <a href="#">Valentino Meyers</a>
+            25 de diciembre,2022
+        </p>
+
+{% for blog in blogsito %}
+
+<div class = "post-preview">
+    <a href= "blog.html">
+        <h2 class= "Post-title">{{blog.titulo}}</h2>
+        <h4 class="post-subtitle">{{blog.subtitulo}}</h4> 
+    </a>
+    <p class="post-meta">Posteado por
+        <a href="#">{{blog.autor}}</a>
+        {{blog.fecha}}
+        <a class="btn btn-info" href="{% url "Editblog" blog.id %}">Editar blog</a>
+        <a class="btn btn-danger" href="{% url "Blogdelete" blog.id %}">Eliminar Blog</a>
+    </p>
+
+{% endfor %}
+
+{{ mensaje555 }}
+<a class="btn btn-success" href="{% url "CrearBlog"  %}">Crear Blog</a>
+
+
+{% endblock %}
+
